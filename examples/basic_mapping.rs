@@ -115,6 +115,9 @@ pub struct UserDto {
 
 fn main() {
     // Build a source model. Note: `password` is present here but intentionally not included in the DTO.
+
+    // Example 1: Using `Into` — converts a `User` into `UserDto` via the derived `impl From<User> for UserDto`.
+    // This moves the `user` instance into the conversion.
     let user = User {
         id: "u123".to_string(),
         name: "Alice".to_string(),
@@ -128,5 +131,22 @@ fn main() {
     };
 
     let dto: UserDto = user.into();
-    println!("Mapped DTO (owned): {:?}", dto);
+    println!("Mapped DTO (into): {:?}", dto);
+
+    // Example 2: Using `UserDto::from` — alternative explicit call to the generated `From<User>` implementation.
+    // This approach makes it clear which type we are converting into.
+    let other_user = User {
+        id: "u456".to_string(),
+        name: "Bob".to_string(),
+        age: 25,
+        password: "topsecret".to_string(),
+        note: None,
+        status: SourceStatus::Inactive,
+        rank: types::Rank::Junior,
+        level: 0,
+        created_at: None,
+    };
+
+    let dto_from = UserDto::from(other_user);
+    println!("Mapped DTO (from): {:?}", dto_from);
 }

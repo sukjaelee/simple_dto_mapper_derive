@@ -117,6 +117,21 @@ fn main() {
         published_at: Some(Utc::now().naive_utc()),
     };
 
+    // Example 1: Using `Into` — converts an `Article` into `ArticleDto` via the derived
+    // `impl From<types::Article> for ArticleDto`. This moves ownership.
     let dto: ArticleDto = src.into();
     println!("DTO: {:?}", dto);
+
+    // Example 2: Using `ArticleDto::from` — explicitly specifies the target type in the conversion.
+    let other = Article {
+        id: "a-002".to_string(),
+        title: "Hello From".to_string(),
+        keywords: vec!["mapping".into(), "collections".into()],
+        labels: vec![SourceTag("x".into()), SourceTag("y".into())],
+        author: Some(SourceAuthor { name: "Bob".into() }),
+        published_at: Some(Utc::now().naive_utc()),
+    };
+
+    let dto_from = ArticleDto::from(other);
+    println!("DTO (from): {:?}", dto_from);
 }
