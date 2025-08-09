@@ -123,7 +123,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-simple_dto_mapper_derive = "0.1.0"
+simple_dto_mapper_derive = "0.1.1"
 ```
 
 ## Diagnostics & Limitations

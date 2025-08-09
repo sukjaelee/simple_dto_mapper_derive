@@ -1,6 +1,6 @@
 [package]
 name = "simple_dto_mapper_derive"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A derive macro for mapping DTOs with rename/transform/skip support"
 license = "MIT"
