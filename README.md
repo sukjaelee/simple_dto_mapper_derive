@@ -102,17 +102,17 @@ fn main() {
 
 ## Collections & Option
 
-Collections and Option do not auto-convert inner elements. Use a transform_fn helper or implement From<Vec<T>> for Vec<U> if you prefer #[dto(into)].
+Collections and Option do not auto-convert inner elements. Use a transform_fn helper or implement From&lt;Vec&lt;T&gt;&gt; for Vec&lt;U&gt; if you prefer #[dto(into)].
 
 ```rust
-// 1) Vec<String> → Vec<String> (same type, no transform needed)
+// same type, no transform needed
 pub keywords: Vec<String>,
 
-// 2) Vec<SourceTag> → Vec<DtoTag> using a transform function
+// Vec<SourceTag> → Vec<DtoTag> using a transform function
 #[dto(rename = "labels", transform_fn = types::vec_into::<types::SourceTag, types::DtoTag>)]
 pub tags: Vec<DtoTag>,
 
-// 3) Option<SourceAuthor> → Option<DtoAuthor>
+// Option<SourceAuthor> → Option<DtoAuthor>
 #[dto(transform_fn = types::opt_into::<types::SourceAuthor, types::DtoAuthor>)]
 pub author: Option<DtoAuthor>,
 ```

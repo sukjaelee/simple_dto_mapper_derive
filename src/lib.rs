@@ -141,12 +141,13 @@
 //!     #[dto(rename = "title")]
 //!     headline: String,
 //!
+//!     /// Same type; no transform needed
+//!     keywords: Vec<String>,
+//!
 //!     /// Vec<SourceTag> → Vec<DtoTag>
 //!     #[dto(rename = "labels", transform_fn = types::vec_into::<types::SourceTag, types::DtoTag>)]
 //!     tags: Vec<types::DtoTag>,
 //!
-//!     /// Same type; no transform needed
-//!     keywords: Vec<String>,
 //!
 //!     /// Option<SourceAuthor> → Option<DtoAuthor>
 //!     #[dto(transform_fn = types::opt_into::<types::SourceAuthor, types::DtoAuthor>)]
