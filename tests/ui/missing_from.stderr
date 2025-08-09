@@ -1,0 +1,7 @@
+error: Expected `#[dto(from = Type)]` on the struct.
+ --> tests/ui/missing_from.rs:9:10
+  |
+9 | #[derive(DtoFrom)]
+  |          ^^^^^^^
+  |
+  = note: this error originates in the derive macro `DtoFrom` (in Nightly builds, run with -Z macro-backtrace for more info)

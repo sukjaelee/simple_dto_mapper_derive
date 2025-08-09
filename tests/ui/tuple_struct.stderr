@@ -1,0 +1,5 @@
+error: DtoFrom only supports named-field structs.
+  --> tests/ui/tuple_struct.rs:11:8
+   |
+11 | struct Dto(String);
+   |        ^^^

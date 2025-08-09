@@ -1,0 +1,42 @@
+[licenses]
+# Allowed licenses for all dependencies
+allow = ["MIT", "Apache-2.0", "Unicode-3.0"]
+
+private = { ignore = true }
+
+[bans]
+# Warn if multiple versions of the same crate are used
+multiple-versions = "warn"
+
+# Disallow wildcard dependencies like `foo = "*"`
+wildcards = "deny"
+
+[advisories]
+# Where to store/fetch the advisory DB (optional; defaults are fine)
+db-path = "~/.cargo/advisory-db"
+# db-urls = ["https://github.com/RustSec/advisory-db"]
+
+# Yanked version policy: "deny" | "warn" (default) | "allow"
+yanked = "deny"
+
+# Unmaintained policy scope: "all" (default) | "workspace" | "transitive" | "none"
+unmaintained = "workspace"
+
+# Ignore specific advisories or yanked versions if needed
+# ignore = [
+#   "RUSTSEC-0000-0000",
+#   { id = "RUSTSEC-0000-0000", reason = "not applicable" },
+#   "crate@0.1.1",
+#   { crate = "crate@0.1.1", reason = "waiting for semver-compatible release" },
+# ]
+
+[sources]
+# Only allow pulling crates from crates.io
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+
+# Disallow unknown registries and git sources by default
+unknown-registry = "deny"
+unknown-git = "deny"
+
+# Disallow git dependencies unless explicitly allowed below
+allow-git = []

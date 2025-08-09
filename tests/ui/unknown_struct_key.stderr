@@ -1,0 +1,5 @@
+error: unknown struct-level #[dto(...)] key; expected `from`
+  --> tests/ui/unknown_struct_key.rs:10:29
+   |
+10 | #[dto(from = types::Source, extra = true)]
+   |                             ^^^^^

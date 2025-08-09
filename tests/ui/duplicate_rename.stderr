@@ -1,0 +1,22 @@
+error: expected identifier, found `::`
+  --> tests/ui/duplicate_rename.rs:12:35
+   |
+9  | #[derive(DtoFrom)]
+   |          ------- while parsing this struct
+...
+12 |     #[dto(rename = "id", rename = "id")]
+   |                                   ^^^^ expected identifier
+
+error: proc-macro derive produced unparsable tokens
+ --> tests/ui/duplicate_rename.rs:9:10
+  |
+9 | #[derive(DtoFrom)]
+  |          ^^^^^^^
+
+error[E0063]: missing field `id` in initializer of `Dto`
+ --> tests/ui/duplicate_rename.rs:9:10
+  |
+9 | #[derive(DtoFrom)]
+  |          ^^^^^^^ missing `id`
+  |
+  = note: this error originates in the derive macro `DtoFrom` (in Nightly builds, run with -Z macro-backtrace for more info)

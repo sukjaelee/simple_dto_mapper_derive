@@ -1,0 +1,23 @@
+[package]
+name = "simple_dto_mapper_derive"
+version = "0.1.0"
+edition = "2021"
+description = "A derive macro for mapping DTOs with rename/transform/skip support"
+license = "MIT"
+repository = "https://github.com/sukjaelee/simple_dto_mapper_derive.git"
+readme = "README.md"
+categories = ["development-tools", "data-structures"]
+keywords = ["dto", "derive", "mapping", "macro"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "2", features = ["derive", "parsing"] }
+quote = "1.0"
+proc-macro2 = "1.0"
+
+[dev-dependencies]
+trybuild = "1"
+proptest = "1"
+chrono = "0.4.41"

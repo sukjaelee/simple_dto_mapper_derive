@@ -1,0 +1,5 @@
+error: duplicate `from` on struct
+  --> tests/ui/duplicate_from.rs:10:29
+   |
+10 | #[dto(from = types::Source, from = types::Source)]
+   |                             ^^^^
